@@ -15,10 +15,14 @@ provider "aws" {
 
 resource "aws_instance" "terraform_created" {
   ami           = "ami-0fc5d935ebf8bc3bc"
-  instance_type = "t2.large"
+  instance_type = "t2.micro"
 
   tags = {
     Name = "HelloWorld-2"
   }
 }
+
+
+
+
 
