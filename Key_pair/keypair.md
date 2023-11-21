@@ -2,6 +2,7 @@
 
 # ssh-keygen -t rsa -b 2048 -f YourKeyPair.pem -- Using public key of this command output in below 
 
+```
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
   public_key = "<YourKeyPair.pem.pub> key content"
@@ -17,5 +18,6 @@ resource "aws_instance" "web1" {
     Name = "HelloWorld"
   }
 }
+```
 
 
