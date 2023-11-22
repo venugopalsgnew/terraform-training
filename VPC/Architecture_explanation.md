@@ -2,9 +2,9 @@ We are working with Terraform configuration to provision AWS resources within a 
 
 Here's a breakdown of the script and what each section does:
 
-**\```
+```
 VPC Setup (aws_vpc): 
-\```**
+```
 
 Creates a VPC with a specified CIDR block and instance tenancy.
 
