@@ -1,0 +1,10 @@
+region        = "us-east-1"
+function_name = "tfsdl-edp-operations-test"
+description   = "Lamda function created part of demo"
+handler       = "welcome.hello"
+runtime       = "python3.8"
+timeout       =  3
+filename         = "../../../../../lambda_src/lambda_function_code/src/tfsdl-edp-operations-test.zip"
+#file          = "../../../../lambda_function_code/src/tfsdl-edp-operations-test.zip"
+function_name1 = "tfsdl-edp-operations-test1"
+filename1      = "../../../../../lambda_src/lambda_function_code/src/tfsdl-edp-operations-test1.zip"
