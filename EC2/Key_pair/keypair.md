@@ -6,7 +6,7 @@
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
   #public_key = "<YourKeyPair.pem.pub> key content"
-  public_key = file("YourKeyPair.pem.pub)
+  public_key = file("YourKeyPair.pem.pub")
 }
 
 resource "aws_instance" "web1" {
