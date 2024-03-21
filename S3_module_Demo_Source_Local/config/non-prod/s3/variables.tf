@@ -2,7 +2,7 @@ variable "bucket" {
     default = "my-non-prod-bucket-18-mar"
 }
 variable "env" {
-    default = "my-non-prod-bucket-18-mar"
+    default = "non-prod"
 }
 
 variable "region" {
