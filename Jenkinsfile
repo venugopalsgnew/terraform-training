@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define the path to the Terraform configuration directory
-        TF_CONFIG_PATH = "S3_module_Demo_Source_Local/config/non-prod/s3/"
+        TF_CONFIG_PATH = "config/non-prod/s3/"
     }
 
     stages {
@@ -17,10 +17,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 // Navigate to the Terraform configuration directory and initialize Terraform
-                sh 'pwd'
-                /var/lib/jenkins
-                sh 'cd workspace/ProjectA/'
-                                dir("${TF_CONFIG_PATH}") {
+                dir("${TF_CONFIG_PATH}") {
                     sh 'terraform init'
                 }
             }
