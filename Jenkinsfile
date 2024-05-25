@@ -17,7 +17,10 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 // Navigate to the Terraform configuration directory and initialize Terraform
-                dir("${TF_CONFIG_PATH}") {
+                sh 'pwd'
+                /var/lib/jenkins
+                sh 'cd workspace/ProjectA/'
+                                dir("${TF_CONFIG_PATH}") {
                     sh 'terraform init'
                 }
             }
@@ -39,6 +42,13 @@ pipeline {
                     sh 'terraform apply -auto-approve'
                 }
             }
+        }
+    }
+
+    post {
+        always {
+            // Clean up workspace after the build
+            cleanWs()
         }
     }
 }
