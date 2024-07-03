@@ -1,0 +1,37 @@
+provider "aws" {
+  region = "ap-southeast-1"  # Update with your desired AWS region
+}
+
+# Input variable for availability zones
+variable "availability_zones" {
+  type = list(string)
+}
+
+# List of instance names
+variable "instance_names" {
+  default = ["dev", "qa"]
+}
+
+resource "aws_instance" "example_instance" {
+  count         = length(var.instance_names)
+  ami           = "ami-07d9b9ddc6cd8dd30"  # Example AMI ID (Amazon Linux 2)
+  instance_type = "t2.micro"               # Example instance type (micro)
+  availability_zone = element(var.availability_zones, count.index)
+
+  tags = {
+    Name = var.instance_names[count.index]
+  }
+}
+
+# Output public IP addresses for each instance
+output "dev_instance_public_ip" {
+  value = aws_instance.example_instance[0].public_ip
+}
+
+output "qa_instance_public_ip" {
+  value = aws_instance.example_instance[1].public_ip
+}
+
+
+
+# terraform apply -var="availability_zones=[\"ap-southeast-1a\",\"ap-southeast-1b\"]"
