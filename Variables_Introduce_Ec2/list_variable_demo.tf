@@ -3,8 +3,8 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
 
   # Using element function to get the first availability zone
-  availability_zone = element(var.availability_zones, 0)
-  # availability_zone = var.availability_zones[0]  # First availability zone
+  #availability_zone = element(var.availability_zones, 0)
+  availability_zone = var.availability_zones[0]  # First availability zone
 
   tags = {
     Name = "MyInstance"
