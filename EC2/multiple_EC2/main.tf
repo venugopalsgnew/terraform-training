@@ -4,7 +4,7 @@ provider "aws" {
 
 # List of instance names
 variable "instance_names" {
-  default = ["dev", "qa", "prod"]
+  default = ["dev", "qa", "prod","release","uat"]
 }
 
 
