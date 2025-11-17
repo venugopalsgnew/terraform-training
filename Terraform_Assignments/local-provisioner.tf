@@ -15,3 +15,24 @@ resource "null_resource" "s3_backup_delete" {
     EOT
   }
 }
+
+
+======================================================
+
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "nautilus-cp-19211"
+  acl    = "private"
+
+  tags = {
+    Name        = "nautilus-cp-19211"
+  }
+}
+
+resource "null_resource" "copy_file" {
+   provisioner "local-exec" {
+    command = "aws s3 cp /tmp/nautilus.txt s3://nautilus-cp-19211/"
+   }
+}
+
+
